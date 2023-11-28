@@ -1,39 +1,27 @@
-import { Component,OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { Share } from '@capacitor/share';
-import { MenuController } from '@ionic/angular'; 
-
-
-
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-
-
 export class AppComponent {
   public appPages = [
-    { title: 'Login', url: '/login', icon: 'person' },
-    { title: 'Contactos', url: '/contactos', icon: 'call' }
-
-
+    { title: 'Inicio', url: '/inicio', icon: 'home' },
+    { title: 'Restablecer contraseña', url: '/contacto', icon: 'mail' },
+    { title: 'Servicios', url: '/servicios', icon: 'paper-plane' },
+    { title: 'Iniciar Sesion', url: '/ingreso', icon: 'person' },
+    { title: 'Registrarse', url: '/registro', icon:'person'  },
+    { title : 'Mapa', url: '/map', icon: 'map'    },
+    
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor(public router: Router, private menu: MenuController)  { }
+  constructor() {}
 
-  abrirMapa() {
-    this.router.navigate(["/mapa"]);
-    this.menu.close();
+  compartirApp() {
+    Share.share({
+      title: 'Compartir myApp',
+      url: 'https://bilbaolabs.cl/',
+      dialogTitle: 'Es perfecta! ',
+    });
   }
-
-  cerrarSesion(){
-    localStorage.removeItem('autenticado');
-    this.router.navigate(["/login"]);
-    this.menu.close();
-  }
-
 }
-
-  

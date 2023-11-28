@@ -2,34 +2,42 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title class="header-title">Inicio</ion-title>
+   
+    </ion-buttons> 
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="content-container">
-  <ion-card class="card-container">
-    <ion-card-header class="header-container">
-      <ion-card-title class="header-title-large"></ion-card-title>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header class="animated-header">
+      Bienvenido a Asistencias Estudiantiles {{ nombreUsuario }}
     </ion-card-header>
-
-    <ion-card-content class="content-center">
-      <p class="welcome-message" [@rainbow]="colors[currentColor]">Bienvenido {{ nombreUsuario }}</p>
-
-      <div class="company-logo-container">
-        <img src="/assets/sede_melipilla.jpg" alt="Logo de la empresa" class="company-logo">
-      </div>
-
-      <ion-item class="item" *ngFor="let personaje of personajes" [routerLink]="['/perfil/' + personaje.id ]">
-        <ion-avatar aria-hidden="true" class="imagen" slot="start">
-          <img src="{{ personaje.image }}" alt="">
-        </ion-avatar>
-        <ion-label>{{ personaje.name }}</ion-label>
-      </ion-item>
-
-      <ion-button expand="block" size="large" class="attendance-button">Pasar Asistencia</ion-button>
+    <ion-card-content class="animacion">
+      <p>Esta es la página de inicio de la aplicación de Asistencias Estudiantiles.</p>
+      <p>El sistema estudiantil sera apto para realizar asistencias mediante un QR.</p>
     </ion-card-content>
   </ion-card>
-
-  
+  <ion-img class="animated-image" 
+    src="https://uploads-eu-west-1.insided.com/buk-es/attachment/5b9786e7-8a11-4c3c-8050-847ba8905b0f_thumb.jpg"
+    alt="The Wisconsin State Capitol building in Madison, WI at night"
+  ></ion-img>
+  <ion-list>
+    <ion-item button href="/servicios">
+      <ion-icon name="person"></ion-icon>
+      Cerrar Sesion
+    </ion-item>
+    <ion-item button (click)="openAsistenciasPage()">
+      <ion-icon ngame="calendar"></ion-icon>
+      Asistencias
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item class="item" *ngFor="let personaje of personajes">
+      <ion-avatar aria-hidden="true" class="imagen" slot="start">
+        <img src="{{ personaje.image }}" alt="">
+      </ion-avatar>
+      <ion-label>{{ personaje.name }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -1,0 +1,28 @@
+<ion-header [style.visibility]="content_visibility" style="background-color: #fff;">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> 
+    <ion-title>Servicios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [style.visibility]="content_visibility" style="background-color: #fff;">
+  <ion-title>
+    QR Code
+  </ion-title>
+  <ion-button 
+    expand="block" 
+    class="ion-margin" 
+    (click)="startScan()">
+    Scan QR Code
+  </ion-button>
+
+  <ion-item *ngIf="scannedResult">
+    <ion-label class="ion-text-wrap">Scanned Result: {{scannedResult}}</ion-label>
+    <ion-button (click)="openLink()">Ir al enlace</ion-button>
+  </ion-item>
+</ion-content>
+
+<ion-content class="ion-padding">
+  <ion-button (click)="logOut()">Cerrar Sesión</ion-button>
+</ion-content>

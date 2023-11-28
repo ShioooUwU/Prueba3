@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 
 import { InicioPageRoutingModule } from './inicio-routing.module';
 
-import { InicioPage } from './inicio.page';
-import { HttpClientModule } from '@angular/common/http';
+import { HomePage } from './inicio.page';
+HomePage 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InicioPageRoutingModule,
+    InicioPageRoutingModule,  
     HttpClientModule
   ],
-  declarations: [InicioPage]
-})
+  declarations: [HomePage]
+})  
 export class InicioPageModule {}
